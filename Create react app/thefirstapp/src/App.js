@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from 'react'
+import './style/main.css'
 function App() {
+  
+  const [infor, setInfor] = useState({
+    name: 'Vu Duy Nhien',
+    age: 18, 
+    address: 'Nam Dinh, Viet Nam'
+  })
+
+  const handleUpdate = () => {
+    setInfor({
+      ...infor,
+      bio: 'yeu mau hong'
+    })
+  }
+
+  // const [counter, setCounter] = useState(0)
+  // const handleIncrease = () => {
+  //   setCounter(counter + 1);
+  // }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <h1 style={{ padding: 20 }}> { counter }</h1> */}
+      <h1> { JSON.stringify(infor)} </h1>
+      <button onClick={ handleUpdate }> update ! </button>
     </div>
   );
 }
